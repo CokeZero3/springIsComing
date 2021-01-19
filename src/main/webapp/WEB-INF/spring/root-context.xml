@@ -13,3 +13,13 @@ p:url="jdbc:oracle:thin:@localhost:1521:xe"
 p:username="c##cokezero"
 p:password="1234"/>		
 </beans>
+
+<bean
+class="org.mybatis.spring.SqlSessionFactoryBean"
+id="sqlSessionFactoryBean"
+p:dataSource-ref="dataSource"
+p:mapperLocations="/WEB-INF/spring/mapper/*.xml" />
+
+<bean class="org.mybatis.spring.SqlSessionTemplate"
+id="sqlSessionTemplate"
+c:sqlSessionFactory-ref="sqlSessionFactoryBean" />
